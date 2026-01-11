@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Banking System - Sign Up</title>
+
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2add32 0%, #2379cf 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -30,7 +31,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2add32 0%, #2379cf 100%);
             padding: 30px;
             text-align: center;
             color: white;
@@ -38,7 +39,6 @@
 
         .header h1 {
             font-size: 28px;
-            margin-bottom: 5px;
         }
 
         .header p {
@@ -47,35 +47,37 @@
         }
 
         .content {
-            padding: 40px 30px;
+            padding: 35px 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 8px;
-            color: #333;
+            margin-bottom: 6px;
+            font-size: 14px;
             font-weight: 500;
-            font-size: 14px;
         }
 
-        .form-group input,
-        .form-group select {
+        input, select {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
+            padding: 12px;
             border-radius: 8px;
+            border: 2px solid #ddd;
             font-size: 14px;
-            transition: border-color 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        input:focus, select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #2379cf;
         }
 
         .btn {
@@ -83,171 +85,147 @@
             padding: 14px;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2add32 0%, #23c9cf 100%);
             color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            opacity: 0.9;
         }
 
         .link {
             text-align: center;
-            margin-top: 20px;
-            color: #666;
+            margin-top: 18px;
             font-size: 14px;
         }
 
         .link a {
-            color: #667eea;
+            color: #2379cf;
             text-decoration: none;
             font-weight: 600;
             cursor: pointer;
         }
 
-        .link a:hover {
-            text-decoration: underline;
-        }
-
         .message {
+            display: none;
             padding: 12px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-size: 14px;
-            display: none;
         }
 
-        .message.success {
+        .success {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
 
-        .message.error {
+        .error {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-
-        .message.show {
-            display: block;
-        }
-
-        h2 {
-            color: #333;
-            margin-bottom: 25px;
-            text-align: center;
-        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>VBS</h1>
-            <p>Virtual Banking System</p>
-        </div>
 
-        <div class="content">
-            <h2>Sign Up</h2>
-            
-            <div id="signupMessage" class="message"></div>
-
-            <form id="signupForm">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="signupName" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" id="signupUsername" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="signupEmail" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="signupPassword" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Role</label>
-                    <select id="signupRole" required>
-                        <option value="">Select Role</option>
-                        <option value="customer">Customer</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn">Create Account</button>
-            </form>
-
-            <div class="link">
-                Already have an account? <a onclick="window.location.href='login.html'">Login</a>
-            </div>
-            <div class="link">
-                <a onclick="window.location.href='home.html'">← Back to Home</a>
-            </div>
-        </div>
+<div class="container">
+    <div class="header">
+        <h1>VBS</h1>
+        <p>Virtual Banking System</p>
     </div>
 
-    <script>
-    const showMessage = (id, text, type) => {
-        const msg = document.getElementById(id);
-        msg.innerText = text;
-        msg.className = "message " + type + " show";
-    };
+    <div class="content">
+        <h2>Create Account</h2>
 
-    const signupForm = document.getElementById("signupForm");
+        <div id="signupMessage" class="message"></div>
 
-    signupForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+        <form id="signupForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="signupName" required>
+            </div>
 
-        const signupData = {
-            name: document.getElementById("signupName").value,
-            username: document.getElementById("signupUsername").value,
-            email: document.getElementById("signupEmail").value,
-            password: document.getElementById("signupPassword").value,
-            role: document.getElementById("signupRole").value
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="signupUsername" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="signupEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="signupPassword" required>
+            </div>
+
+            <div class="form-group">
+                <label>Role</label>
+                <select id="signupRole" required>
+                    <option value="">Select Role</option>
+                    <option value="customer">Customer</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Create Account</button>
+        </form>
+
+        <div class="link">
+            Already have an account?
+            <a onclick="location.href='login.html'">Login</a>
+        </div>
+
+        <div class="link">
+            <a onclick="location.href='home.html'">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("signupForm");
+    const messageBox = document.getElementById("signupMessage");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = {
+            name: signupName.value.trim(),
+            username: signupUsername.value.trim(),
+            email: signupEmail.value.trim(),
+            password: signupPassword.value,
+            role: signupRole.value
         };
 
         fetch("http://localhost:8081/register", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(signupData)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         })
-        .then(response => response.text())
-        .then(result => {
-            if (result === "Successfully Registered") {
-                showMessage(
-                    "signupMessage",
-                    "Account created successfully! Please login.",
-                    "success"
-                );
+            .then(res => res.text())
+            .then(msg => {
+                messageBox.style.display = "block";
 
-                window.location.href = "login.html";
-            } else {
-                showMessage("signupMessage", result, "error");
-            }
-        })
-        .catch(error => {
-            showMessage(
-                "signupMessage",
-                "Error connecting to server. Please try again.",
-                "error"
-            );
-            console.error("Signup error:", error);
-        });
+                if (msg === "Successfully Registered") {
+                    messageBox.className = "message success";
+                    messageBox.innerText = "Account created successfully!";
+                    setTimeout(() => location.href = "login.html", 1500);
+                } else {
+                    messageBox.className = "message error";
+                    messageBox.innerText = msg;
+                }
+            })
+            .catch(() => {
+                messageBox.style.display = "block";
+                messageBox.className = "message error";
+                messageBox.innerText = "Server error. Try again later.";
+            });
     });
 </script>
 

@@ -3,155 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Banking System - Home</title>
+    <title>VBS – Digital Banking</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, sans-serif;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#2379cf,#1b4f7d,#2add32);
         }
 
-        .container {
-            width: 90%;
-            max-width: 450px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+        /* MAIN CONTAINER */
+        .container{
+            width:95%;
+            max-width:1000px;
+            background:#162533;
+            border-radius:18px;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            box-shadow:0 25px 60px rgba(0,0,0,0.45);
+            overflow:hidden;
         }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px;
-            text-align: center;
-            color: white;
+        /* LEFT SECTION */
+        .left{
+            padding:50px;
         }
 
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
+        .logo{
+            font-size:32px;
+            font-weight:800;
+            color:#2add32;
+            letter-spacing:1px;
         }
 
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
+        .title{
+            font-size:30px;
+            font-weight:600;
+            margin:22px 0;
+            color:#ffffff;
         }
 
-        .content {
-            padding: 40px 30px;
+        .desc{
+            font-size:15px;
+            color:#d2e1ee;
+            line-height:1.7;
         }
 
-        .home-content {
-            text-align: center;
+        .stats{
+            display:flex;
+            gap:15px;
+            margin:35px 0;
         }
 
-        .home-content h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 24px;
+        .stat{
+            flex:1;
+            background:#1e3446;
+            padding:18px;
+            border-radius:14px;
+            text-align:center;
+            border:1px solid rgba(35,121,207,0.25);
         }
 
-        .home-content p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 30px;
+        .stat h3{
+            color:#2add32;
+            font-size:22px;
+            margin-bottom:4px;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
+        .stat p{
+            font-size:12px;
+            color:#b7cee3;
         }
 
-        .btn {
-            flex: 1;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
+        /* BUTTONS */
+        .buttons{
+            display:flex;
+            gap:15px;
+            margin-top:25px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        button{
+            padding:14px 26px;
+            border:none;
+            border-radius:12px;
+            font-size:15px;
+            cursor:pointer;
+            font-weight:600;
+            transition:0.3s ease;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .primary{
+            background:#2add32;
+            color:#0a2d12;
         }
 
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
+        .primary:hover{
+            background:#23c92b;
+            box-shadow:0 10px 25px rgba(42,221,50,0.35);
+            transform:translateY(-2px);
         }
 
-        .btn-secondary:hover {
-            background: #e0e0e0;
+        .secondary{
+            background:#2379cf;
+            color:#ffffff;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
+        .secondary:hover{
+            background:#1e68b0;
+            box-shadow:0 10px 25px rgba(35,121,207,0.35);
+            transform:translateY(-2px);
         }
 
-        .feature {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            text-align: center;
+        /* RIGHT SECTION */
+        .right{
+            background:linear-gradient(160deg,#1c3a57,#162b40);
+            padding:50px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
         }
 
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
+        .highlight{
+            font-size:26px;
+            font-weight:600;
+            color:#ffffff;
+            line-height:1.4;
         }
 
-        .feature h3 {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 5px;
+        .highlight span{
+            color:#2add32;
         }
 
-        .feature p {
-            font-size: 12px;
-            color: #666;
+        .subtext{
+            margin-top:18px;
+            font-size:14px;
+            color:#c3d8ea;
+            line-height:1.7;
+        }
+
+        .trust{
+            margin-top:35px;
+            font-size:13px;
+            color:#9fc1de;
+            border-left:3px solid #2379cf;
+            padding-left:12px;
+        }
+
+        /* MOBILE */
+        @media(max-width:800px){
+            .container{
+                grid-template-columns:1fr;
+            }
+            .right{
+                text-align:center;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>VBS</h1>
-            <p>Virtual Banking System</p>
+
+<div class="container">
+
+    <!-- LEFT SECTION -->
+    <div class="left">
+        <div class="logo">VBS</div>
+
+        <div class="title">
+            Secure & Simple<br>
+            Digital Banking
         </div>
 
-        <div class="content">
-            <div class="home-content">
-                <h2>Welcome to VBS</h2>
-                <p>Experience secure and convenient banking at your fingertips. Manage your finances with confidence.</p>
-                
-                
-                <div class="btn-group">
-                    <button class="btn btn-primary" onclick="window.location.href='login.html'">Login</button>
-                    <button class="btn btn-secondary" onclick="window.location.href='signup.html'">Sign Up</button>
-                </div>
+        <div class="desc">
+            VBS is a virtual banking system built for secure
+            transactions, fast access, and intelligent
+            account management.
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>99.9%</h3>
+                <p>System Uptime</p>
+            </div>
+            <div class="stat">
+                <h3>24×7</h3>
+                <p>Availability</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Secure Data</p>
             </div>
         </div>
+
+        <div class="buttons">
+            <button class="primary" onclick="location.href='login.html'">
+                Login
+            </button>
+            <button class="secondary" onclick="location.href='signup.html'">
+                Register
+            </button>
+        </div>
     </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="right">
+        <div class="highlight">
+            Smart Banking Platform<br>
+            <span>for the Digital Era</span>
+        </div>
+
+        <div class="subtext">
+            Designed for students, developers, and fintech
+            innovators to experience real-world digital
+            banking systems.
+        </div>
+
+        <div class="trust">
+          Trust Us & Secure your Future
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
